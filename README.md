@@ -1,6 +1,47 @@
 # Vanitygen plus plus
 Vanity address generator for BTC, ETH, LTC, TRX etc (more than 100 crypto currencies).
 
+
+# UBUNTU CONFIG
+
+
+# OPENCL
+
+sudo apt-get install libcurl4-openssl-dev libssl-dev zlib1g-dev
+sudo apt-get install libpcre3-dev
+sudo apt-get install opencl-headers
+
+
+# OPENSSL 3.0
+
+sudo wget https://www.openssl.org/source/openssl-3.0.8.tar.gz
+sudo tar -xzvf openssl-3.0.8.tar.gz 
+cd openssl-3.0.8
+sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+sudo make
+cat <<'EOT' | sudo tee /etc/ld.so.conf.d/openssl-3.0.8.conf
+	/usr/local/ssl/lib64
+	EOT
+ldconfig -v
+mv /usr/bin/openssl /usr/bin/openssl.bak && mv /usr/bin/c_rehash /usr/bin/c_rehash.bak
+sudo mv /usr/bin/openssl /usr/bin/openssl.bak && mv /usr/bin/c_rehash /usr/bin/c_rehash.bak
+sudo update-alternatives --install /usr/bin/openssl openssl /usr/local/ssl/bin/openssl 1
+sudo update-alternatives --install /usr/bin/c_rehash c_rehash /usr/local/ssl/bin/c_rehash 1
+openssl version
+ldconfig /usr/local/lib64/
+sudo ldconfig /usr/local/lib64/
+ln -s libssl.so.3 libssl.so
+
+# NIXOS
+
+curl -L https://nixos.org/nix/install | sh
+source /home/ubuntu/.nix-profile/etc/profile.d/nix.sh
+
+------------------
+
+
+
+
 # Usage
 List all supported crypto currencies:
 ```
