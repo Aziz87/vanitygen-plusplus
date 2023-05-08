@@ -2,7 +2,7 @@
 Vanity address generator for BTC, ETH, LTC, TRX etc (more than 100 crypto currencies).
 
 
-# UBUNTU CONFIG
+# CONFIG UBUNTU 20
 
 
 ---OPENCL
