@@ -5,15 +5,18 @@ Vanity address generator for BTC, ETH, LTC, TRX etc (more than 100 crypto curren
 # UBUNTU CONFIG
 
 
-# OPENCL
+---OPENCL
 
+```
 sudo apt-get install libcurl4-openssl-dev libssl-dev zlib1g-dev
 sudo apt-get install libpcre3-dev
 sudo apt-get install opencl-headers
+```
 
 
-# OPENSSL 3.0
+---OPENSSL 3.0
 
+```
 sudo wget https://www.openssl.org/source/openssl-3.0.8.tar.gz
 sudo tar -xzvf openssl-3.0.8.tar.gz 
 cd openssl-3.0.8
@@ -31,11 +34,14 @@ openssl version
 ldconfig /usr/local/lib64/
 sudo ldconfig /usr/local/lib64/
 ln -s libssl.so.3 libssl.so
+```
 
-# NIXOS
+---NIXOS
 
+```
 curl -L https://nixos.org/nix/install | sh
 source /home/ubuntu/.nix-profile/etc/profile.d/nix.sh
+```
 
 ------------------
 
